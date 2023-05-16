@@ -1,9 +1,23 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
+
+const Title = () => {
+    return (
+        <h5>SHAHID UL ISLAM</h5>
+    )
+}
 
 const Header = () => {
     return (
-        <div>
-            <h1>Header Component</h1>
+        <div className="header">
+            <Title />
+            <div className="nav-items">
+                <ul>
+                    <Link to="/"> <li>Home </li></Link>
+                    <Link to="/about"> <li>About</li> </Link>
+                    <Link to="/portfolio"><li>Portfolio </li> </Link>
+                </ul>
+            </div>
         </div>
     )
 }

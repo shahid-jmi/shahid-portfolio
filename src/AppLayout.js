@@ -1,15 +1,15 @@
 import React from 'react'
-import Body from './Components/Body';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
-const App = () => {
+import { Outlet } from 'react-router-dom';
+const AppLayout = () => {
   return (
     <>
       <Header />
-      <Body />
+      <Outlet />
       <Footer />
     </>
   );
 }
 
-export default App;
+export default AppLayout;
