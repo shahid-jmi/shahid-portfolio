@@ -4,12 +4,14 @@ import App from './App';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Portfolio from './Components/Portfolio';
 import About from './Components/About';
+import Error from './Components/Error';
 
 
 const appRouter = createBrowserRouter([
   {
     path: "/",
-    element: <App />
+    element: <App />,
+    errorElement: <Error />
   },
   {
     path: "/about",
