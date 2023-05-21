@@ -2,11 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import AppLayout from './AppLayout';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import Portfolio from './Components/Portfolio';
+import Projects from './Components/Projects';
 import About from './Components/About';
 import Error from './Components/Error';
 import Body from './Components/Body';
-
+import Services from './Components/Services';
+import Skills from './Components/Skills';
+import Contact from './Components/Contact';
 
 const appRouter = createBrowserRouter([
   {
@@ -23,12 +25,23 @@ const appRouter = createBrowserRouter([
         element: <About />
       },
       {
-        path: "/portfolio",
-        element: <Portfolio />
+        path: "/projects",
+        element: <Projects />
+      },
+      {
+        path: "/services",
+        element: <Services />
+      },
+      {
+        path: "/skills",
+        element: <Skills />
+      },
+      {
+        path: "/contact",
+        element: <Contact />
       }
     ]
   },
-
 ])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
