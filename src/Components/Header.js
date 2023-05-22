@@ -1,9 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-
+import logo from '../assets/images/logo.png'
 const Title = () => {
     return (
-        <Link to="/"><h5>SHAHID UL ISLAM</h5></Link>
+        <Link to="/" className='title'>
+            <img className='logo' src={logo} alt="Shahid ul islam logo" />
+            <p className='name'>SHAHID UL ISLAM</p>
+        </Link>
     )
 }
 
@@ -18,7 +21,6 @@ const Header = () => {
                     <Link to="/projects"><li>Projects </li> </Link>
                     <Link to="/skills"><li>Skills </li> </Link>
                     <Link to="/contact"><li>Contact </li> </Link>
-                    <li><button>Dark Mode</button></li>
                 </ul>
             </nav>
         </header>
