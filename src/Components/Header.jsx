@@ -12,7 +12,7 @@ const Title = () => {
 
 const Header = () => {
     return (
-        <header className='flex justify-between bg-slate-50 shadow-sm'>
+        <header className='flex justify-between bg-black text-white shadow-sm m-12 p-5'>
             <Title />
             <div className='flex py-3'>
                 <ul className='flex'>
@@ -20,8 +20,8 @@ const Header = () => {
                     <Link to="/services"><li className="px-2">Services </li> </Link>
                     <Link to="/projects"><li className="px-2">Projects </li> </Link>
                     <Link to="/skills"><li className="px-2">Skills </li> </Link>
+                    <Link to="/contact"><li className="bg-blue-400 rounded-xl px-2 mr-2">Contact </li> </Link>
                 </ul>
-                <Link to="/contact"><button className="bg-blue-400 rounded-md px-2 mr-1">Contact </button> </Link>
             </div>
         </header>
     )
