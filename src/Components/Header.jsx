@@ -12,18 +12,20 @@ const Title = () => {
 
 const Header = () => {
     return (
-        <header className='flex justify-between bg-black text-white shadow-sm m-12 p-5'>
-            <Title />
-            <div className='flex py-3'>
-                <ul className='flex'>
-                    <Link to="/about"> <li className="px-2">About Me</li> </Link>
-                    <Link to="/services"><li className="px-2">Services </li> </Link>
-                    <Link to="/projects"><li className="px-2">Projects </li> </Link>
-                    <Link to="/skills"><li className="px-2">Skills </li> </Link>
-                    <Link to="/contact"><li className="bg-blue-400 rounded-xl px-2 mr-2">Contact </li> </Link>
-                </ul>
-            </div>
-        </header>
+        <div className='bg-black border-red-600 border-solid text-white'>
+            <header className='flex justify-between m-4'>
+                <Title />
+                <div className='flex'>
+                    <ul className='flex'>
+                        <Link to="/about"> <li className="">About Me</li> </Link>
+                        <Link to="/services"><li className="">Services </li> </Link>
+                        <Link to="/projects"><li className="">Projects </li> </Link>
+                        <Link to="/skills"><li className="">Skills </li> </Link>
+                        <Link to="/contact"><li className="bg-blue-400 rounded-xl">Contact </li> </Link>
+                    </ul>
+                </div>
+            </header>
+        </div>
     )
 }
 
