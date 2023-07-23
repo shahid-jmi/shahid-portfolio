@@ -14,8 +14,10 @@ const Title = () => {
 const Header = () => {
     return (
         <div className='bg-black text-white'>
-            <header className='flex justify-between items-center py-4 px-8'>
-                <Title />
+            <header className='flex flex-col sm:flex-row justify-between items-center py-4 px-8'>
+                <div className="flex items-center mb-4 sm:mb-0"> {/* This div is for the title and logo */}
+                    <Title />
+                </div>
                 <ul className='flex items-center'> {/* Add items-center class to center the elements horizontally */}
                     <li className='mr-4'>
                         <Link to="/about" className="hover:text-blue-400">About Me</Link>
@@ -31,9 +33,7 @@ const Header = () => {
                     </li>
                     <li>
                         <Link to="/contact">
-                            <button className="bg-blue-400 hover:bg-blue-500 py-2 px-4 rounded-md"> {/* Adjust the padding values */}
-                                Contact
-                            </button>
+                            <button className="bg-blue-400 hover:bg-blue-500 py-2 px-4 rounded-md">Contact</button>
                         </Link>
                     </li>
                 </ul>
