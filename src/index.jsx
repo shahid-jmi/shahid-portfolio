@@ -6,7 +6,6 @@ import Projects from './Components/Projects';
 import About from './Components/About';
 import Error from './Components/Error';
 import Body from './Components/Body';
-import Services from './Components/Services';
 import Skills from './Components/Skills';
 import Contact from './Components/Contact';
 
@@ -27,10 +26,6 @@ const appRouter = createBrowserRouter([
       {
         path: "/projects",
         element: <Projects />
-      },
-      {
-        path: "/services",
-        element: <Services />
       },
       {
         path: "/skills",
