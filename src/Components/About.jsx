@@ -5,7 +5,7 @@ const About = () => {
         <div className="p-4 max-w-screen-lg">
             <h1 className="text-4xl font-bold mb-8">About Me</h1>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="md:text-right bg-gray-100 p-4 rounded-lg">
+                <div className="md:text-right  p-4 rounded-lg">
                     <div className="font-bold text-4xl mb-4">Hello there!</div>
                     <div className="font-bold text-4xl mb-4">I'm Shahid,</div>
                     <p className="text-xl">
