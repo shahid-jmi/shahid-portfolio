@@ -28,13 +28,13 @@ const Contact = () => {
     };
 
     return (
-        <div className="max-w-md mx-auto my-8 p-6 border rounded-lg shadow-lg text-white bg-black">
+        <div className="max-w-md mx-auto my-8 p-6 border rounded-lg shadow-lg ">
             <h1 className="text-2xl font-semibold mb-4 ">
                 Thanks for taking the time to reach out. How can I help you today?
             </h1>
             <form onSubmit={handleSubmit}>
                 <div className="mb-4">
-                    <label className="block text-sm font-medium text-gray-700">Name:</label>
+                    <label className="block text-sm font-medium ">Name:</label>
                     <input
                         type="text"
                         name="name"
@@ -45,7 +45,7 @@ const Contact = () => {
                     />
                 </div>
                 <div className="mb-4">
-                    <label className="block text-sm font-medium text-gray-700">Email:</label>
+                    <label className="block text-sm font-medium">Email:</label>
                     <input
                         type="email"
                         name="email"
@@ -56,7 +56,7 @@ const Contact = () => {
                     />
                 </div>
                 <div className="mb-4">
-                    <label className="block text-sm font-medium text-gray-700">Message:</label>
+                    <label className="block text-sm font-medium ">Message:</label>
                     <textarea
                         name="message"
                         value={formData.message}
