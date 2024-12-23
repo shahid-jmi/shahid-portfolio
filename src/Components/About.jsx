@@ -9,7 +9,7 @@ const About = () => {
                     <div className="font-bold text-4xl mb-4">Hello there!</div>
                     <div className="font-bold text-4xl mb-4">I'm Shahid,</div>
                     <p className="text-xl">
-                        A passionate Full Stack Web Developer hailing from the picturesque region of Jammu and Kashmir, India.
+                        A passionate Full Stack Web Developer hailing from the picturesque region of Jammu and Kashmir,India.
                     </p>
                 </div>
                 <div className="md:text-left">
