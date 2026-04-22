@@ -2,9 +2,41 @@
    Apple Liquid Glass — Design System
    =================================================== */
 
-/* ---- Smooth Scrolling & Base ---- */
+/* ---- Base & Scroll ---- */
+html, body {
+  background: #060912;
+  margin: 0;
+  padding: 0;
+}
+
 html {
+  /* Fixes white flash when scrolling beyond page content */
   scroll-behavior: smooth;
+  /* Snap to each section — mandatory means it ALWAYS snaps */
+  scroll-snap-type: y mandatory;
+  /* Offset snap so sections don't hide under the 64px sticky header */
+  scroll-padding-top: 64px;
+  overflow-y: scroll;
+}
+
+body {
+  min-height: 100%;
+}
+
+/* Scroll snap section utility */
+.snap-section {
+  scroll-snap-align: start;
+  /* Each section fills exactly one viewport */
+  height: 100vh;
+  /* Overflow hidden so content stays within the snapping boundary */
+  overflow: hidden;
+  /* Account for sticky header */
+  padding-top: 64px;
+  box-sizing: border-box;
+  /* Centre content vertically inside the section */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 *:focus-visible {
