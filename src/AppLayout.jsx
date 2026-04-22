@@ -23,16 +23,20 @@ const AppLayout = () => {
   return (
     <HelmetProvider>
       <ThemeProvider>
-        <div className="min-h-screen bg-slate-50 dark:bg-slate-900 font-sans transition-colors duration-300">
-          <Header />
-          <main>
-            <AnimatePresence mode="wait">
-              <PageWrapper key={location.pathname}>
-                <Outlet />
-              </PageWrapper>
-            </AnimatePresence>
-          </main>
-          <Footer />
+        {/* Liquid glass background — always dark like visionOS */}
+        <div className="liquid-bg dark font-sans">
+          {/* All content sits above the CSS ::before orb layer */}
+          <div className="relative z-10 flex flex-col min-h-screen">
+            <Header />
+            <main className="flex-1">
+              <AnimatePresence mode="wait">
+                <PageWrapper key={location.pathname}>
+                  <Outlet />
+                </PageWrapper>
+              </AnimatePresence>
+            </main>
+            <Footer />
+          </div>
         </div>
       </ThemeProvider>
     </HelmetProvider>
@@ -40,3 +44,4 @@ const AppLayout = () => {
 };
 
 export default AppLayout;
+
