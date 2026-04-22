@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
-import pic from '../assets/images/shahid.png';
+import picPng from '../assets/images/shahid.png';
+import picWebp from '../assets/images/shahid.webp';
+import picAvif from '../assets/images/shahid.avif';
+import { Seo } from '../Components/Seo';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -22,10 +24,7 @@ const imageVariants = {
 const HomePage = () => {
   return (
     <>
-      <Helmet>
-        <title>Shahid ul Islam — Full Stack Developer</title>
-        <meta name="description" content="Shahid ul Islam is a Full Stack Developer from Jammu and Kashmir, India, specializing in React, Node.js, and modern web technologies." />
-      </Helmet>
+      <Seo path="/" />
 
       <section className="min-h-screen flex items-center px-6 md:px-16 py-20">
         <div className="max-w-6xl mx-auto w-full flex flex-col-reverse md:flex-row items-center gap-12">
@@ -102,11 +101,17 @@ const HomePage = () => {
               <div className="absolute -inset-4 rounded-3xl bg-gradient-to-br from-blue-500/30 via-violet-500/20 to-cyan-500/20 blur-2xl" />
               {/* Glass frame */}
               <div className="relative glass p-2">
-                <img
-                  className="w-64 h-64 md:w-76 md:h-76 object-cover rounded-[18px]"
-                  src={pic}
-                  alt="Shahid ul Islam — Full Stack Developer"
-                />
+                <picture>
+                  <source srcSet={picAvif} type="image/avif" />
+                  <source srcSet={picWebp} type="image/webp" />
+                  <img
+                    className="w-64 h-64 md:w-76 md:h-76 object-cover rounded-[18px]"
+                    src={picPng}
+                    alt="Shahid ul Islam — Full Stack Developer"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </picture>
               </div>
             </div>
           </motion.div>

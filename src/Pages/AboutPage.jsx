@@ -1,6 +1,6 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
+import { Seo } from '../Components/Seo';
 
 const sectionVariant = {
   hidden: { opacity: 0, y: 36 },
@@ -17,10 +17,11 @@ const milestones = [
 const AboutPage = () => {
   return (
     <>
-      <Helmet>
-        <title>About — Shahid ul Islam</title>
-        <meta name="description" content="Learn about Shahid ul Islam, a Gold Medalist Full Stack Developer from Jammu and Kashmir, India." />
-      </Helmet>
+      <Seo
+        title="About"
+        description="Learn about Shahid ul Islam, a Gold Medalist Full Stack Developer from Jammu and Kashmir, India."
+        path="/about"
+      />
 
       <section className="min-h-screen px-6 md:px-16 py-24 max-w-5xl mx-auto">
         <motion.div
