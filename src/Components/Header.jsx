@@ -16,10 +16,10 @@ const MoonIcon = () => (
 );
 
 const navLinks = [
-  { to: '/about', label: 'About' },
+  { to: '/about',    label: 'About'    },
   { to: '/projects', label: 'Projects' },
-  { to: '/skills', label: 'Skills' },
-  { to: '/contact', label: 'Contact' },
+  { to: '/skills',   label: 'Skills'   },
+  { to: '/contact',  label: 'Contact'  },
 ];
 
 const Header = () => {
@@ -27,26 +27,28 @@ const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navLinkClass = ({ isActive }) =>
-    `text-sm font-semibold transition-colors duration-200 ${
+    `text-sm font-medium transition-all duration-200 px-3 py-1.5 rounded-full ${
       isActive
-        ? 'text-blue-500 dark:text-blue-400'
-        : 'text-slate-600 dark:text-slate-300 hover:text-blue-500 dark:hover:text-blue-400'
+        ? 'glass-pill text-white'
+        : 'text-slate-300 hover:text-white'
     }`;
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200/60 dark:border-slate-700/60">
+    <header className="glass-nav sticky top-0 z-50">
       <div className="max-w-6xl mx-auto px-6 md:px-8 flex items-center justify-between h-16">
 
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 group">
-          <img className="h-8 w-auto" src={logo} alt="Shahid ul Islam logo" />
-          <span className="font-bold text-slate-900 dark:text-white text-sm md:text-base tracking-wide group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors duration-200">
+        <Link to="/" className="flex items-center gap-2.5 group">
+          <div className="glass-pill p-1.5 rounded-xl">
+            <img className="h-7 w-auto" src={logo} alt="Shahid ul Islam logo" />
+          </div>
+          <span className="font-bold text-white text-sm tracking-wide group-hover:text-blue-300 transition-colors duration-200">
             SHAHID UL ISLAM
           </span>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => (
             <NavLink key={link.to} to={link.to} className={navLinkClass}>
               {link.label}
@@ -54,23 +56,22 @@ const Header = () => {
           ))}
         </nav>
 
-        {/* Right side: theme toggle + mobile menu button */}
-        <div className="flex items-center gap-3">
+        {/* Right: theme toggle + mobile hamburger */}
+        <div className="flex items-center gap-2">
           <button
             onClick={toggleTheme}
             id="theme-toggle"
             aria-label="Toggle dark mode"
-            className="p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:text-blue-500 dark:hover:text-blue-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-200"
+            className="p-2 rounded-xl glass-pill text-slate-300 hover:text-white transition-all duration-200"
           >
             {isDark ? <SunIcon /> : <MoonIcon />}
           </button>
 
-          {/* Mobile hamburger */}
           <button
             onClick={() => setMenuOpen((prev) => !prev)}
             id="mobile-menu-button"
             aria-label="Open menu"
-            className="md:hidden p-2 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all duration-200"
+            className="md:hidden p-2 rounded-xl glass-pill text-slate-300 hover:text-white transition-all duration-200"
           >
             {menuOpen ? (
               <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -85,10 +86,10 @@ const Header = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Dropdown */}
+      {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden border-t border-slate-200 dark:border-slate-700 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md">
-          <nav className="flex flex-col px-6 py-4 gap-4">
+        <div className="md:hidden glass-nav border-t border-white/10">
+          <nav className="flex flex-col px-6 py-4 gap-2">
             {navLinks.map((link) => (
               <NavLink
                 key={link.to}

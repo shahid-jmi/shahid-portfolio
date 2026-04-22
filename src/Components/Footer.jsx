@@ -14,28 +14,18 @@ const InstagramIcon = () => (
 
 const Footer = () => {
   return (
-    <footer className="border-t border-slate-200 dark:border-slate-700 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm">
-      <div className="max-w-6xl mx-auto px-6 md:px-8 py-8 flex flex-col md:flex-row items-center justify-between gap-4">
-        <p className="text-sm text-slate-500 dark:text-slate-400">
+    <footer className="glass-subtle border-t border-white/8">
+      <div className="max-w-6xl mx-auto px-6 md:px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p className="text-xs text-slate-500">
           © {new Date().getFullYear()} Shahid ul Islam. All rights reserved.
         </p>
         <div className="flex items-center gap-5">
-          <a
-            href="https://github.com/shahid-jmi"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="GitHub"
-            className="text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white transition-colors duration-200"
-          >
+          <a href="https://github.com/shahid-jmi" target="_blank" rel="noopener noreferrer" aria-label="GitHub"
+            className="text-slate-500 hover:text-white transition-colors duration-200">
             <GitHubIcon />
           </a>
-          <a
-            href="https://www.instagram.com/_i_shahid/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Instagram"
-            className="text-slate-400 dark:text-slate-500 hover:text-pink-500 dark:hover:text-pink-400 transition-colors duration-200"
-          >
+          <a href="https://www.instagram.com/_i_shahid/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"
+            className="text-slate-500 hover:text-pink-400 transition-colors duration-200">
             <InstagramIcon />
           </a>
         </div>
