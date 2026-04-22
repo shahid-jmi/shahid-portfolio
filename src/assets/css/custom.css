@@ -1,80 +1,68 @@
-.background {
-    background: url('../images/bg.jpg');
-    background-size: cover;
-    background-position: center;
+/* ===========================
+   CSS Custom Properties
+   =========================== */
+:root {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #f1f5f9;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --border-color: #e2e8f0;
+  --accent: #3b82f6;
 }
 
+.dark {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --border-color: #334155;
+  --accent: #60a5fa;
+}
+
+/* ===========================
+   Glassmorphism Utility
+   =========================== */
 .glass {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
-    backdrop-filter: blur(5px);
-    border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    /* You can adjust the border color and opacity */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 8px 16px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07), 0 10px 25px rgba(0, 0, 0, 0.07);
 }
 
-/* header.css */
-
-.header-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
+/* ===========================
+   Smooth Scrolling
+   =========================== */
+html {
+  scroll-behavior: smooth;
 }
 
-.header-title {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
+/* ===========================
+   Focus Styles
+   =========================== */
+*:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
 }
 
-.header-title img {
-    height: 3rem;
-    margin-right: 0.5rem;
+/* ===========================
+   Scrollbar (webkit)
+   =========================== */
+::-webkit-scrollbar {
+  width: 6px;
 }
 
-.header-title p {
-    font-size: 1.5rem;
-    font-weight: bold;
+::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-.header-links {
-    display: flex;
-    align-items: center;
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
 }
 
-.header-links li {
-    margin-right: 1rem;
-}
-
-.header-links li:last-child {
-    margin-right: 0;
-}
-
-/* header.css */
-
-.header-links li a {
-    color: #000;
-    text-decoration: none;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.header-links li a:hover {
-    color: #3b82f6;
-}
-
-.header-links li button {
-    background-color: #3b82f6;
-    color: #fff;
-    padding: 0.5rem 1rem;
-    border-radius: 0.25rem;
-    border: none;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.header-links li button:hover {
-    background-color: #2563eb;
+.dark ::-webkit-scrollbar-thumb {
+  background: #475569;
 }
