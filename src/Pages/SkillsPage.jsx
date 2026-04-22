@@ -1,7 +1,7 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { skillCategories } from '../data/skillsData';
+import { Seo } from '../Components/Seo';
 
 const containerVariant = { hidden: {}, visible: { transition: { staggerChildren: 0.09 } } };
 const itemVariant = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: 'easeOut' } } };
@@ -9,10 +9,11 @@ const itemVariant = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0
 const SkillsPage = () => {
   return (
     <>
-      <Helmet>
-        <title>Skills — Shahid ul Islam</title>
-        <meta name="description" content="Technical skills of Shahid ul Islam: React, Node.js, Python, PHP, Laravel, React Native, and more." />
-      </Helmet>
+      <Seo
+        title="Skills"
+        description="Technical skills of Shahid ul Islam: React, Node.js, Python, PHP, Laravel, React Native, and more."
+        path="/skills"
+      />
 
       <section className="min-h-screen px-6 md:px-16 py-24 max-w-5xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="mb-14">

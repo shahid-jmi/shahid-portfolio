@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 import logo from '../assets/images/logo.png';
 import { useTheme } from '../context/ThemeContext';
+import { prefetchRoute } from '../app/router';
 
 const SunIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -50,7 +51,13 @@ const Header = () => {
         {/* Desktop Nav */}
         <nav className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => (
-            <NavLink key={link.to} to={link.to} className={navLinkClass}>
+            <NavLink
+              key={link.to}
+              to={link.to}
+              className={navLinkClass}
+              onMouseEnter={() => prefetchRoute(link.to)}
+              onFocus={() => prefetchRoute(link.to)}
+            >
               {link.label}
             </NavLink>
           ))}
@@ -95,6 +102,8 @@ const Header = () => {
                 key={link.to}
                 to={link.to}
                 className={navLinkClass}
+                onMouseEnter={() => prefetchRoute(link.to)}
+                onFocus={() => prefetchRoute(link.to)}
                 onClick={() => setMenuOpen(false)}
               >
                 {link.label}

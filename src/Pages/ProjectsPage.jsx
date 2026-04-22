@@ -1,7 +1,7 @@
 import React from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import { projects } from '../data/projectsData';
+import { Seo } from '../Components/Seo';
 
 const cardVariants = {
   hidden: { opacity: 0, y: 28 },
@@ -23,10 +23,11 @@ const GitHubIcon = () => (
 const ProjectsPage = () => {
   return (
     <>
-      <Helmet>
-        <title>Projects — Shahid ul Islam</title>
-        <meta name="description" content="Explore projects built by Shahid ul Islam — React apps, Laravel platforms, Node.js APIs, and cross-platform apps." />
-      </Helmet>
+      <Seo
+        title="Projects"
+        description="Explore projects built by Shahid ul Islam — React apps, Laravel platforms, Node.js APIs, and cross-platform apps."
+        path="/projects"
+      />
 
       <section className="min-h-screen px-6 md:px-16 py-24 max-w-6xl mx-auto">
         <motion.div initial={{ opacity: 0, y: 28 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="mb-14">

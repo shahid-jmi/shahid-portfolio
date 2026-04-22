@@ -1,19 +1,14 @@
 import React, { useState } from 'react';
-import { Helmet } from 'react-helmet-async';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
+import { Seo } from '../Components/Seo';
 
-// ----------------------------------------------------------------
-// Fill in your EmailJS credentials below.
-// Sign up free at https://www.emailjs.com/ to get these values.
-// ----------------------------------------------------------------
-const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';
-const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
-const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';
-// ----------------------------------------------------------------
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
 const ContactPage = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', message: '', company: '' });
   const [status, setStatus] = useState('idle'); // 'idle' | 'sending' | 'success' | 'error'
 
   const handleChange = (e) => {
@@ -23,6 +18,15 @@ const ContactPage = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    // Honeypot for basic bot filtering (humans won't fill this)
+    if (formData.company) return;
+
+    if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+      console.error('Missing EmailJS environment variables.');
+      setStatus('error');
+      return;
+    }
+
     setStatus('sending');
     try {
       await emailjs.send(
@@ -32,7 +36,7 @@ const ContactPage = () => {
         EMAILJS_PUBLIC_KEY
       );
       setStatus('success');
-      setFormData({ name: '', email: '', message: '' });
+      setFormData({ name: '', email: '', message: '', company: '' });
     } catch (err) {
       console.error('EmailJS error:', err);
       setStatus('error');
@@ -41,10 +45,11 @@ const ContactPage = () => {
 
   return (
     <>
-      <Helmet>
-        <title>Contact — Shahid ul Islam</title>
-        <meta name="description" content="Get in touch with Shahid ul Islam. Available for freelance work, collaborations, and full-time opportunities." />
-      </Helmet>
+      <Seo
+        title="Contact"
+        description="Get in touch with Shahid ul Islam. Available for freelance work, collaborations, and full-time opportunities."
+        path="/contact"
+      />
 
       <section className="min-h-screen px-6 md:px-16 py-24 max-w-5xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-start">
@@ -103,6 +108,19 @@ const ContactPage = () => {
                 </div>
               ))}
 
+              {/* Honeypot: hidden field for bots */}
+              <div className="hidden" aria-hidden="true">
+                <label className="block text-xs font-semibold text-slate-300 mb-1.5">Company</label>
+                <input
+                  type="text"
+                  name="company"
+                  value={formData.company}
+                  onChange={handleChange}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
+
               <div>
                 <label className="block text-xs font-semibold text-slate-300 mb-1.5">Message</label>
                 <textarea
@@ -119,12 +137,12 @@ const ContactPage = () => {
               {/* Status */}
               {status === 'success' && (
                 <div className="glass p-3 text-green-300 text-xs font-medium">
-                  ✅ Message sent! I'll get back to you soon.
+                  Message sent! I'll get back to you soon.
                 </div>
               )}
               {status === 'error' && (
                 <div className="glass p-3 text-red-300 text-xs font-medium">
-                  ❌ Something went wrong. Please try again or reach out via Instagram.
+                  Something went wrong. Please try again or reach out via Instagram.
                 </div>
               )}
 
